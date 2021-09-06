@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
@@ -101,8 +101,13 @@ body {
     <div class="subnav">
         <button class="subnavbtn">Administrator<i class="fa fa-caret-down"></i></button>
         <div class="subnav-content">
-            <a href="#company">Report</a>
             <a href="#company">Company</a>
+        </div>
+    </div>
+    <div class="subnav">
+        <button class="subnavbtn">Report<i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+            <a href="../report/account">Account Journal</a>
         </div>
     </div>
     <div class="subnav">
