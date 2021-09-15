@@ -26,6 +26,34 @@ pageEncoding="UTF-8"%>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<title>Account Journal Report</title>
 	<script type="text/javascript">
+
+    function onFormSubmit(){
+        var formData= readFormData();
+        insertNewRecord(formData);
+
+    }
+
+
+    function readFormData() {
+        var formData ={};
+        formData["companyNo"] = document.getElementById ("companyNo").value;
+        formData["companyName"] = document.getElementById ("companyName").value;
+        return formData;
+
+    }
+
+function insertNewRecord(data){
+    var table =document.getElementById("companyTable").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+    cell1 = newRow.insertCell(0);
+    cell1.innerHTML = data.companyNo;
+    cell2 = newRow.insertCell(1);
+    cell2.innerHTML = data.companyName;
+    cell3= newRow.insertCell(2);
+    cell3.innerHTML = `<a>Edit</a>
+                      <a>Delete</a>`;
+
+}
 	</script>
 	<style type="text/css">
 	.dropdown:hover .dropdown-menu {
@@ -106,96 +134,45 @@ pageEncoding="UTF-8"%>
       </div>
     </nav>
 	<!-- https://www.youtube.com/watch?v=J6jrLZ3Ah5g -->
-	<h2 align="center" style="font-weight:normal; color:#0230FF;">Journal Entry Report</h2>
+    <br>
+	<h2 align="center" style="font-weight:normal; color:#0230FF;">List Of Companies</h2>
+    <br>
 	<div class="container-xl">
-		<div style="border: 1px solid blue; padding: 15px 15px 15px; background-image:linear-gradient(#E1F5FE,#FAFAFA)">
-			<form id="search_form" name="search_form">
-				<div class="row">
-					<div class="col">
-						<label for="companies" class="fw">Company:</label>
-						<select class="form-select form-select-sm" id="company" aria-label=".form-select-sm" name="company">
-							<c:forEach items="${companies}" var="company">
-								<option value="${company.companyID}">${company.companyName}</option>
-							</c:forEach>
-						</select>
-					</div>
-					<div class="col">
-						<label for="raisedBy" class="fw">Raised By:</label>
-						<select class="form-select form-select-sm" id="raisedby" aria-label=".form-select-sm" name="raisedby">
-							<option value="">All</option>
-						</select>
-					</div>
-					<div class="col">
-						<label for="journalType" class="fw">Description (Journal Type):</label>
-						<select class="form-select form-select-sm" id="description" aria-label=".form-select-sm" name="description">
-							<option value="">All</option>
-						</select>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<label for="mode" class="fw">Mode:</label>
-						<select class="form-select form-select-sm" id="mode" aria-label=".form-select-sm" name="mode">
-							<option value="1">Daily</option>
-							<option value="2">Monthly</option>
-							<option value="3">Yearly</option>
-						</select>
-					</div>
-					<div class="col">
-						<div id="dailyDiv" style="display: block;">
-							<label for="datePicker" class="fw">Date From:</label>
-							<input type="date" class="form-control form-control-sm" id="datePicker" name="datePicker"> </div>
-						<div id="yearlyDiv" style="display: none;">
-							<label for="yearPicker" class="fw">Year:</label>
-							<select class="form-select form-select-sm" id="yearPicker" aria-label=".form-select-sm" name="yearPicker"></select>
-						</div>
-					</div>
-					<div class="col">
-						<div id="dailyDiv" style="display: block;">
-							<label for="datePicker" class="fw">Date To:</label>
-							<input type="date" class="form-control form-control-sm" id="datePicker" name="datePicker"> </div>
-						<div id="monthlyDiv" style="display: none;">
-							<label for="monthlyDiv" class="fw">Monthly:</label>
-							<input type="date" class="form-control form-control-sm" id="monthlyPicker" name="monthlyPicker"> </div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<label for="formNo" class="fw">Form No:</label>
-						<input class="form-control form-control-sm" type="text" aria-label=".form-control-sm example"> </div>
-					<div class="col">
-						<label for="documentNo" class="fw">Document No. (JV No.):</label>
-						<input class="form-control form-control-sm" type="text" aria-label=".form-control-sm example">
-					</div>
-					<div class="col">
-						<label for="documentDate" class="fw">Document Date:</label>
-						<input class="form-control form-control-sm" type="text" aria-label=".form-control-sm example"> </div>
-				</div>
-				<div class="row" style="height:50px">
-					<div class="col">
-						<input id="search" type="submit" class="btn btn-dark" value="Search" style="float:right; background-image:linear-gradient(#1976D2, #1A237E)">
-					</div>
-				</div>
-			</form>
-		</div>
+	<div id="AddTable" style="border: 1px solid blue; padding: 15px; background-image:linear-gradient(#E1F5FE,#FAFAFA);  margin-top: 20px;">
+	<form onsubmit="event.preventDefault(); onFormSubmit();" autocomplete="off">
+	<div class="col">
+        <label for="companyNo" class="form-label">No:</label>
+        <input type="text" class="form-control" id="companyNo" placeholder="companyNo">
+    </div>
+    <div class="col">
+            <label for="companyName" class="form-label">Company Name:</label>
+            <input type="text" class="form-control" id="companyName" placeholder="Company Name">
+        </div>
+    <br>
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Add</button>
+         </div>
+
+
+	</form>
 	</div>
-	<br>
+	</div>
 	<div class="container-xl">
 		<div id="tableDiv" style="border: 1px solid blue; padding: 15px; background-image:linear-gradient(#E1F5FE,#FAFAFA);  margin-top: 20px;">
 			<div class="table-responsive-xxl">
-				<table id="reportTable" class="table table-striped table-hover table-bordered table align-middle" cellspacing="0" width="100%">
+				<table id="companyTable" class="table table-striped table-hover table-bordered table align-middle" cellspacing="0" width="100%">
 					<thead class="table table align-middle text-white" style="background-image:linear-gradient(#1976D2, #1A237E); font-weight:normal;">
 						<tr class="align-middle">
-							<th style="font-weight:normal;">Form No</th>
-							<th style="font-weight:normal;">Company</th>
-							<th style="font-weight:normal;">Document No. (JV No)</th>
-							<th style="font-weight:normal;">Document Date</th>
-							<th style="font-weight:normal;">Description (Journal Type)</th>
-							<th style="font-weight:normal;">Raised By</th>
-							<th style="font-weight:normal;">Assigned User</th>
-							<th style="font-weight:normal;">Status</th>
+						     <th style="font-weight:normal;">No</th>
+                             <th style="font-weight:normal;">Company Name</th>
+                             <th style="font-weight:normal;">Action</th>
+
 						</tr>
 					</thead>
+					<tbody>
+
+					</tbody>
+
 				</table>
 			</div>
 		</div>
