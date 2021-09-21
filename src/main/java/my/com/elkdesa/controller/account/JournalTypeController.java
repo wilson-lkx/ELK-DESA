@@ -1,4 +1,4 @@
-package my.com.elkdesa.controller;
+package my.com.elkdesa.controller.account;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/account")
-public class AccountController {
+public class JournalTypeController {
 
     @RequestMapping("/journal_type")
     public String getJournalType(Model model) {
