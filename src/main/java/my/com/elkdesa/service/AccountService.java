@@ -18,8 +18,9 @@ public interface AccountService {
 
     void deleteElkdesaAccountJournalType(Integer id);
 
-
     List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentList();
+
+    List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentByJournalType(Integer journalType);
 
     ElkdesaAccountSupportDocument findElkdesaAccountSupportDocument(Integer id);
 
@@ -28,7 +29,6 @@ public interface AccountService {
     ElkdesaAccountSupportDocument updateElkdesaAccountSupportDocument(ElkdesaAccountSupportDocument elkdesaAccountSupportDocument);
 
     void deleteElkdesaAccountSupportDocument(Integer id);
-
 
     List<ElkdesaAccountRejectedReason> findElkdesaAccountRejectedReasonList();
 

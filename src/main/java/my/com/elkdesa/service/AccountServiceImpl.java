@@ -19,10 +19,15 @@ public class AccountServiceImpl implements AccountService{
     @Autowired
     ElkdesaAccountJournalTypeDao<ElkdesaAccountJournalType> elkdesaAccountJournalTypeDao;
 
+    @Autowired
+    ElkdesaAccountSupportDocumentDao<ElkdesaAccountSupportDocument> elkdesaAccountSupportDocumentDao;
+
+    @Autowired
+    ElkdesaAccountRejectedReasonDao<ElkdesaAccountRejectedReason> elkdesaAccountRejectedReasonDao;
 
     @Override
     public List<ElkdesaAccountJournalType> findElkdesaAccountJournalList() {
-        return elkdesaAccountJournalTypeDao.findAll();
+        return elkdesaAccountJournalTypeDao.findAll("journalType");
     }
 
     @Override
@@ -45,14 +50,14 @@ public class AccountServiceImpl implements AccountService{
         elkdesaAccountJournalTypeDao.deleteById(id);
     }
 
-
-
-    @Autowired
-    ElkdesaAccountSupportDocumentDao<ElkdesaAccountSupportDocument> elkdesaAccountSupportDocumentDao;
-
     @Override
     public List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentList() {
         return elkdesaAccountSupportDocumentDao.findAll();
+    }
+
+    @Override
+    public List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentByJournalType(Integer journalType) {
+        return elkdesaAccountSupportDocumentDao.findElkdesaAccountSupportDocumentByJournalType(journalType);
     }
 
     @Override
@@ -74,11 +79,6 @@ public class AccountServiceImpl implements AccountService{
     public void deleteElkdesaAccountSupportDocument(Integer id) {
         elkdesaAccountSupportDocumentDao.deleteById(id);
     }
-
-
-
-    @Autowired
-    ElkdesaAccountRejectedReasonDao<ElkdesaAccountRejectedReason> elkdesaAccountRejectedReasonDao;
 
     @Override
     public List<ElkdesaAccountRejectedReason> findElkdesaAccountRejectedReasonList() {

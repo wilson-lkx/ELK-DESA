@@ -24,8 +24,16 @@ public class SupportDocumentController {
 
     @GetMapping
     @ResponseBody
-    public List<ElkdesaAccountSupportDocument> getSupportDocuments() {
-        return accountService.findElkdesaAccountSupportDocumentList();
+    public List<ElkdesaAccountSupportDocument> getSupportDocuments(
+            @RequestParam(value = "journalType", required = false) Integer journalType
+    ) {
+        List<ElkdesaAccountSupportDocument> elkdesaAccountSupportDocumentList;
+        if (journalType != null) {
+            elkdesaAccountSupportDocumentList = accountService.findElkdesaAccountSupportDocumentByJournalType(journalType);
+        } else {
+            elkdesaAccountSupportDocumentList = accountService.findElkdesaAccountSupportDocumentList();
+        }
+        return elkdesaAccountSupportDocumentList;
     }
 
     @PostMapping
