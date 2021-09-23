@@ -14,8 +14,8 @@ public class ElkdesaAccountRejectedReason implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "rejected_reson", nullable = false)
-    private String rejectedReson;
+    @Column(name = "rejected_reason", nullable = false)
+    private String rejectedReason;
 
     public void setId(Long id) {
         this.id = id;
@@ -25,19 +25,19 @@ public class ElkdesaAccountRejectedReason implements Serializable {
         return id;
     }
 
-    public void setRejectedReson(String rejectedReson) {
-        this.rejectedReson = rejectedReson;
+    public void setRejectedReason(String rejectedReason) {
+        this.rejectedReason = rejectedReason;
     }
 
-    public String getRejectedReson() {
-        return rejectedReson;
+    public String getRejectedReason() {
+        return rejectedReason;
     }
 
     @Override
     public String toString() {
         return "ElkdesaAccountRejectedReason{" +
                 "id=" + id + '\'' +
-                "rejectedReson=" + rejectedReson + '\'' +
+                "rejectedReason=" + rejectedReason + '\'' +
                 '}';
     }
 }
