@@ -24,7 +24,7 @@ pageEncoding="UTF-8"%>
 <script type="text/javascript">
 
 	$(document).ready(function() {
-        var targetUrl = '${pageContext.request.contextPath}/account/journal_types';
+        var targetUrl = '${pageContext.request.contextPath}/account/rejected_reasons';
         $('.dialog').dialog({
             modal: true,
             autoOpen: false,
@@ -60,7 +60,7 @@ pageEncoding="UTF-8"%>
 				visible: false,
 				searchable: false
 			}, {
-				data: "journalType",
+				data: "rejectedReason",
 				width: '80%'
 			}, {
 				targets: -2,
@@ -81,15 +81,15 @@ pageEncoding="UTF-8"%>
 		    var buttonId = this.id;
 			var tr = $(this).closest('tr');
             var data = $('#table').DataTable().row(tr).data(); //json
-			var journalId = data.id;
-			var journalType = data.journalType;
+			var rejectedReasonId = data.id;
+			var rejectedReason = data.rejectedReason;
 
 			if(buttonId == "btnEdit") {
                 $('#dialogEdit').dialog('open');
-                $('#formEdit #id').val(journalId);
-                $('#formEdit #journalType').val(journalType);
+                $('#formEdit #id').val(rejectedReasonId);
+                $('#formEdit #rejectedReason').val(rejectedReason);
 			} else {
-                deleteRecord(targetUrl, journalId);
+                deleteRecord(targetUrl, rejectedReasonId);
 			}
 		});
 		$('#btnCreate').click(function(){
@@ -103,14 +103,14 @@ pageEncoding="UTF-8"%>
  <%@ include file="../include/button.html" %>
  <%@ include file="../include/menu.html" %>
 
- 	<h2> Journal Type List </h2>
+ 	<h2> Rejected Reason List </h2>
  	<br>
  	<button id="btnCreate" class="btn"><i class="fas fa-file"></i> New Record</button>
  	<table id="table" class="display" style="width:100%">
  		<thead>
  			<tr>
  				<th class='notexport'>Id</th>
- 				<th>Journal Type Name</th>
+ 				<th>Rejected Reason</th>
  				<th class='notexport'>Edit</th>
  				<th class='notexport'>Delete</th>
  			</tr>
@@ -118,25 +118,25 @@ pageEncoding="UTF-8"%>
  	</table>
  	<div id="dialogEdit" class="dialog" style="display: none" align = "center">
  		<form id="formEdit" class="dialogForm" name="formEdit">
- 			<h3>Edit Company Form</h3>
+ 			<h3>Edit Rejected Reason Form</h3>
  			<hr/>
  			<input type="text" id="id" name="id" style="display: none">
  			<br/>
- 			<label>Journal Type Name: <span>*</span></label>
+ 			<label>Rejected Reason: <span>*</span></label>
  			<br/>
- 			<input type="text" id="journalType"  name="journalType">
+ 			<input type="text" id="rejectedReason"  name="rejectedReason">
  			<br/>
  		</form>
  	</div>
  	<div id="dialogCreate" class="dialog" style="display: none" align = "center">
  		<form id="formCreate" class="dialogForm" name="formCreate">
- 			<h3>Create New Journal Type Form</h3>
+ 			<h3>Create New Rejected Reason Form</h3>
  			<hr/>
  			<input type="text" id="id" name="id" style="display: none">
  			<br/>
- 			<label>Journal Type Name: <span>*</span></label>
+ 			<label>Rejected Reason: <span>*</span></label>
  			<br/>
- 			<input type="text" id="journalType" name="journalType">
+ 			<input type="text" id="rejectedReason" name="rejectedReason">
  			<br/>
  		</form>
  	</div>
