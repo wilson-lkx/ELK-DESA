@@ -8,6 +8,11 @@ pageEncoding="UTF-8"%>
 <head>
 <meta charset="UTF-8">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
     <script src="/js/ajax-request.js"></script>
     <script src="/js/serialize-form.js"></script>
 
@@ -19,13 +24,14 @@ pageEncoding="UTF-8"%>
 	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.min.css">
     <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
-
+    <link rel="stylesheet" type="text/css" href="/css/dataView.css">
 
 <script type="text/javascript">
 
 	$(document).ready(function() {
         var targetUrl = '${pageContext.request.contextPath}/account/journal_types';
         $('.dialog').dialog({
+            dialogClass:'dialogTitle',
             modal: true,
             autoOpen: false,
             width: 700,
@@ -45,6 +51,7 @@ pageEncoding="UTF-8"%>
                 },
                 "Cancel": function() {
                     $(this).dialog("close");
+
                 }
             }
         });
@@ -67,13 +74,15 @@ pageEncoding="UTF-8"%>
 				data: null,
 				defaultContent: '<button id="btnEdit" class="btn"><i class="fas fa-edit"></i></button>',
 				orderable: false,
-				width: '10%'
+				width: '10%',
+				className: "text-center"
 			}, {
 				targets: -1,
 				data: null,
 				defaultContent: '<button class="btn"><i class="fas fa-trash"></i></button>',
 				orderable: false,
-				width: '10%'
+				width: '10%',
+				className: "text-center"
 			}],
 			buttons: getExportButtons()
 		});
@@ -99,15 +108,23 @@ pageEncoding="UTF-8"%>
 	</script>
 </head>
 
-<body>
+<body id="body">
  <%@ include file="../include/button.html" %>
  <%@ include file="../include/menu.html" %>
 
- 	<h2> Journal Type List </h2>
+<br>
+<div class="container-xl">
+ 	<h2 id="title"> Journal Type List </h2>
+</div>
  	<br>
+<div class="container-xl justify-content-md-end">
  	<button id="btnCreate" class="btn"><i class="fas fa-file"></i> New Record</button>
- 	<table id="table" class="display" style="width:100%">
- 		<thead>
+ </div>
+ <br>
+ <br>
+ 	<div class="container-xl">
+ 	<table id="table" class="table table-striped table-hover table-bordered table align-middle" cellspacing="0" width="100%" style="width:100%">
+ 		<thead class="table table align-middle text-white" style="background-image:linear-gradient(#1976D2, #1A237E); font-weight:normal;">
  			<tr>
  				<th class='notexport'>Id</th>
  				<th>Journal Type Name</th>
@@ -116,9 +133,11 @@ pageEncoding="UTF-8"%>
  			</tr>
  		</thead>
  	</table>
+ 	</div>
+ 	<br>
  	<div id="dialogEdit" class="dialog" style="display: none" align = "center">
  		<form id="formEdit" class="dialogForm" name="formEdit">
- 			<h3>Edit Company Form</h3>
+ 			<h3>Edit Journal Type Form</h3>
  			<hr/>
  			<input type="text" id="id" name="id" style="display: none">
  			<br/>
@@ -136,10 +155,16 @@ pageEncoding="UTF-8"%>
  			<br/>
  			<label>Journal Type Name: <span>*</span></label>
  			<br/>
- 			<input type="text" id="journalType" name="journalType">
+ 			<input type="text" id="journalType" name="journalType" autocomplete="off">
  			<br/>
  		</form>
  	</div>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
  </body>
 
  </html>

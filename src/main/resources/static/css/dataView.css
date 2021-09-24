@@ -1,0 +1,45 @@
+#body{
+background-color: #EDEDED;
+}
+
+.notexport{
+text-align:center;
+}
+
+#table{
+border: 2px solid black;  background-color: #EDEDED;
+}
+
+#btnEdit{
+align:center;
+}
+#title{
+text-align:center;
+}
+
+#btnCreate{
+border: none;
+border-radius: 12px;
+float:right;
+color:white;
+background-image:linear-gradient(#1A237E,#08073B)
+}
+#btnCreate:hover {background-color: #3e8e41}
+
+#btnCreate:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.dialogTitle .ui-dialog-titlebar{
+background-image:linear-gradient(#1A237E,#08073B)
+}
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+#rejectedReason{
+autocomplete:off;
+}

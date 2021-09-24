@@ -62,50 +62,11 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body style="background-color: #EDEDED;">
-	<nav class="navbar navbar-expand-lg navbar-dark" style="background-image:linear-gradient(#1A237E,#08073B)">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="http://localhost:8101/"> <img src="/images/logo.png" alt="ELKDESA Logo" width="165" height="65" class="d-inline-block align-top" /> <span class="hidden"> ELKDESA </span> </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="http://localhost:8099/jsp/login.jsp?DFS__Redirect=1">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                Administrator
-                              </a>
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../administrator/company">Company</a></li>
-                              </ul>
-                            </li>
-            <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../account/journal_type">Journal Type</a></li>
-                      </ul>
-                    </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                Report
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="../report/account">Account Journal Report</a></li>
-                <li><a class="dropdown-item" href="#">Finance Report</a></li>
-                <li><a class="dropdown-item" href="#">EDP Report</a></li>
-              </ul>
-            </li>
 
-          </ul>
+<%@ include file="../include/button.html" %>
+ <%@ include file="../include/menu.html" %>
 
-        </div>
-      </div>
-    </nav>
-	<!-- https://www.youtube.com/watch?v=J6jrLZ3Ah5g -->
+
 	<h2 align="center" style="font-weight:normal; color:#0230FF;">Journal Entry Report</h2>
 	<div class="container-xl">
 		<div style="border: 1px solid blue; padding: 15px 15px 15px; background-image:linear-gradient(#E1F5FE,#FAFAFA)">
