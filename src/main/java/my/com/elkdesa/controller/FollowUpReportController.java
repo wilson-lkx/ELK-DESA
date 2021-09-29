@@ -5,13 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/report")
-public class ReportController {
+public class FollowUpReportController {
 
-    @RequestMapping("/account")
-    public String getAccountReport() {
-        return "report/account";
+    @RequestMapping("/follow_up_report")
+    public String getAuditTrialReport() {
+        return "report/follow_up_report";
     }
-
-
 }
-

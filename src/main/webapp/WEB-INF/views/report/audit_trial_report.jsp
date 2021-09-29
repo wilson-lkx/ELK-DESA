@@ -39,13 +39,13 @@ pageEncoding="UTF-8"%>
 
 
 var json = {
-  sample : [{"id":1,"formNo":"202109_000001","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "01-09-2021","description": "Opening Undue HP interest","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "Pending for Approval"},
-                    {"id":2,"formNo":"202109_000002","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "01-09-2021","description": "Transfer To Stock","raisedBy": "Izziana","assignedUser": "Chang Sook Ling","status": "Draft"},
-                    {"id":3,"formNo":"202109_000003","companyName":"ELK Desa Capital Sdn Bhd","documentNo": "test","documentDate": "06-09-2021","description": "Salary","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "Pending for Approval"},
-                    {"id":4,"formNo":"202109_000004","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "07-09-2021","description": "Bank charges","raisedBy": "LiWanHo","assignedUser": "Peh Bee Chin","status": "Approved"},
-                    {"id":5,"formNo":"202109_000005","companyName":"ELK Desa Risk Agency Sdn Bhd","documentNo": "test","documentDate": "07-09-2021","description": "Closing Undue HP interest","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "Request Info"},
-                    {"id":6,"formNo":"202109_000006","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "10-09-2021","description": "Opening Undue HP interest","raisedBy": "Izziana","assignedUser": "Chang Sook Ling","status": "Request Info"}
-                  ,{"id":7,"formNo":"202109_000007","companyName":"Premier Auto Asset Bhd","documentNo": "test","documentDate": "11-09-2021","description": "Opening Undue HP interest","raisedBy": "LiWanHo","assignedUser": "Peh Bee Chin","status": "Pending for Approval"}]
+  sample : [{"id":1,"formNo":"202109_000001","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "01-09-2021","description": "Opening Undue HP interest","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "pending"},
+                    {"id":2,"formNo":"202109_000002","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "01-09-2021","description": "Transfer To Stock","raisedBy": "Izziana","assignedUser": "Chang Sook Ling","status": "completed"},
+                    {"id":3,"formNo":"202109_000003","companyName":"ELK Desa Capital Sdn Bhd","documentNo": "test","documentDate": "06-09-2021","description": "Salary","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "completed"},
+                    {"id":4,"formNo":"202109_000004","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "07-09-2021","description": "Bank charges","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "pending"},
+                    {"id":5,"formNo":"202109_000005","companyName":"ELK Desa Risk Agency Sdn Bhd","documentNo": "test","documentDate": "07-09-2021","description": "Closing Undue HP interest","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "pending"},
+                    {"id":6,"formNo":"202109_000006","companyName":"ELK Desa Resources Bhd","documentNo": "test","documentDate": "10-09-2021","description": "Opening Undue HP interest","raisedBy": "Izziana","assignedUser": "Chang Sook Ling","status": "completed"}
+                  ,{"id":7,"formNo":"202109_000007","companyName":"Premier Auto Asset Bhd","documentNo": "test","documentDate": "11-09-2021","description": "Opening Undue HP interest","raisedBy": "LiWanHo","assignedUser": "Chang Sook Ling","status": "pending"}]
 };
 
 $(document).ready(function() {
@@ -121,7 +121,7 @@ var table = $('#table').DataTable({
  <%@ include file="../include/menu.html" %>
 
 <br>
-	<h2 id="title">Journal Entry Report</h2>
+	<h2 id="title">Audit Trial Report</h2>
 	<div class="container-xl">
 		<div style="border: 1px solid black; padding: 15px 15px 15px;>
 			<form id="search_form" name="search_form">
