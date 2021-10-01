@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="/css/dataView.css">
 
-	<title>Account Journal Report</title>
+	<title>Journal Entry Report</title>
 	<script type="text/javascript">
 
 	function getCurrentDate(now) {
@@ -50,44 +50,37 @@ var json = {
 
 $(document).ready(function() {
 var now = new Date();
+//var tableColumns = ['id', 'formNo'];
+
 		$('#datePicker').val(getCurrentDate(now));
 
 var table = $('#table').DataTable({
 			dom: 'Bfrtip',
 			data:json.sample,
+			scrollX: 'true',
 			dataSrc: '',
 
 			columns: [{
              	data: "id",
-             	visible: false,
-             	searchable: false
-            },
+                className: "text-center"},
              	{data: "formNo",
-             	width:'10%',
              	className: "text-center"},
              	{data: "companyName",
-             	width:'10%',
              	className: "text-center"},
              	{data: "documentNo",
-             	width:'15%',
              	className: "text-center"},
              	{data: "documentDate",
-             	width:'10%',
              	className: "text-center"},
              	{data: "description",
-             	width:'15%',
              	className: "text-center"},
              	{data: "raisedBy",
-             	width:'15%',
              	className: "text-center"},
              	{data: "assignedUser",
-             	width:'15%',
              	className: "text-center"},
              	{data: "status",
-             	width:'10%',
              	className: "text-center"}],
 
-			buttons: getExportButtons()
+			buttons: getExportButtons('JournalEntryReport')
 
 	});
         $('#search_form').submit(function(event) {
@@ -125,6 +118,31 @@ var table = $('#table').DataTable({
 	<div class="container-xl">
 		<div style="border: 1px solid black; padding: 15px 15px 15px;>
 			<form id="search_form" name="search_form">
+			<div class="row">
+            					<div class="col">
+            							<label for="selectDate" class="fw">Select Work Flow</label>
+            							<select class="form-select form-select-sm" id="description" aria-label=".form-select-sm" name="description">
+                                        	<option value="">All</option>
+                                        	<option value="">Workflow Start</option>
+                                        	<option value="">Workflow End</option>
+                                        </select>
+            					</div>
+
+
+            					<div class="col">
+            						<div id="dailyDiv">
+            							<label for="datePicker" class="fw">Date From:</label>
+            							<input type="date" class="form-control form-control-sm" id="datePicker" name="datePicker">
+            							</div>
+            						</div>
+            						<div class="col">
+                                    	<div id="dailyDiv">
+                                    	<label for="datePicker" class="fw">Date To:</label>
+                                    	<input type="date" class="form-control form-control-sm" id="datePicker" name="datePicker">
+                                    		</div>
+                                    </div>
+            				</div>
+
 				<div class="row">
 					<div class="col">
 						<label for="companies" class="fw">Company:</label>
@@ -139,41 +157,47 @@ var table = $('#table').DataTable({
 						</select>
 					</div>
 					<div class="col">
-						<label for="raisedBy" class="fw">Raised By:</label>
-						<select class="form-select form-select-sm" id="raisedby" aria-label=".form-select-sm" name="raisedby">
-							<option value="">All</option>
-							<option value="">LiWanHo</option>
-							<option value="">Chang Sook Ling</option>
-							<option value="">Izziana</option>
-							<option value="">Peh Bee Chin</option>
-						</select>
-					</div>
-					<div class="col">
-						<label for="journalType" class="fw">Description (Journal Type):</label>
-						<select class="form-select form-select-sm" id="description" aria-label=".form-select-sm" name="description">
-							<option value="">All</option>
-						</select>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-4">
-						<div id="dailyDiv">
-							<label for="datePicker" class="fw">Date From:</label>
-							<input type="date" class="form-control form-control-sm" id="datePicker" name="datePicker">
-							</div>
+                    						<label for="journalType" class="fw">Description (Journal Type):</label>
+                    						<select class="form-select form-select-sm" id="description" aria-label=".form-select-sm" name="description">
+                    							<option value="">All</option>
+                    						</select>
+                    					</div>
 
-					</div>
-					<div class="col-4">
-						<div id="dailyDiv">
-							<label for="datePicker" class="fw">Date To:</label>
-							<input type="date" class="form-control form-control-sm" id="datePicker" name="datePicker">
-							</div>
-						</div>
+<div class="col-4">
+                	<label for="selectStatus" class="fw">Status</label>
+                <select class="form-select form-select-sm" id="description" aria-label=".form-select-sm" name="description">
+                           <option value="">All</option>
+                           <option value="">Pending for Approval</option>
+                           <option value="">Draft</option>
+                           <option value="">Approved</option>
+                           <option value="">Request Info</option>
+
+                    </select>
+                        </div>
+				</div>
+
+				<div class="row">
+				<div class="col-4">
+                						<label for="raisedBy" class="fw">Raised By:</label>
+                						<select class="form-select form-select-sm" id="raisedby" aria-label=".form-select-sm" name="raisedby">
+                							<option value="">All</option>
+                							<option value="">LiWanHo</option>
+                							<option value="">Chang Sook Ling</option>
+                							<option value="">Izziana</option>
+                							<option value="">Peh Bee Chin</option>
+                						</select>
+                					</div>
+
+                        <div class="col-4">
+                       <label for="documentDate" class="fw">Document Date:</label>
+                      <input type="date" class="form-control form-control-sm" id="datePicker" name="datePicker">
+                           </div>
+
 				</div>
 
 				<div class="row" style="height:50px">
 					<div class="col">
-						<input id="search" type="submit" class="btn btn-dark" value="Search" style="float:right; background-image:linear-gradient(#1976D2, #1A237E)">
+						<input id="search" type="submit" class="btn btn-dark" value="Filter" style="float:right; background-image:linear-gradient(#1976D2, #1A237E)">
 					</div>
 				</div>
 			</form>
@@ -182,7 +206,7 @@ var table = $('#table').DataTable({
 	<br>
 	<div class="container-xl">
         <div id="tableDiv">
-				<table id="table" class="table table-striped table-hover table-bordered table align-middle" cellspacing="0" width="100%">
+				<table id="table" class="table table-striped table-hover table-bordered table align-middle table-sm nowrap" cellspacing="0" width="100%">
 					<thead class="table table align-middle text-white" style="background-image:linear-gradient(#1976D2, #1A237E); font-weight:normal;">
 						<tr>
 						    <th class='notexport'>Id</th>

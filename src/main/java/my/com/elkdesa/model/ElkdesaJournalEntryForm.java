@@ -4,9 +4,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
+/**
+ * $table.getTableComment()
+ */
 @Entity
-@Table(name = "elkdesa_account_journal_form")
-public class ElkdesaAccountJournalForm implements Serializable {
+@Table(name = "elkdesa_journal_entry_form")
+public class ElkdesaJournalEntryForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,8 +18,8 @@ public class ElkdesaAccountJournalForm implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "form_no", nullable = false)
-    private String formNo;
+    @Column(name = "form_sequence", nullable = false)
+    private Integer formSequence;
 
     @Column(name = "form_company", nullable = false)
     private Integer formCompany;
@@ -38,12 +41,12 @@ public class ElkdesaAccountJournalForm implements Serializable {
         return id;
     }
 
-    public void setFormNo(String formNo) {
-        this.formNo = formNo;
+    public void setFormSequence(Integer formSequence) {
+        this.formSequence = formSequence;
     }
 
-    public String getFormNo() {
-        return formNo;
+    public Integer getFormSequence() {
+        return formSequence;
     }
 
     public void setFormCompany(Integer formCompany) {
@@ -80,9 +83,9 @@ public class ElkdesaAccountJournalForm implements Serializable {
 
     @Override
     public String toString() {
-        return "ElkdesaAccountJournalForm{" +
+        return "ElkdesaJournalEntryForm{" +
                 "id=" + id + '\'' +
-                "formNo=" + formNo + '\'' +
+                "formSequence=" + formSequence + '\'' +
                 "formCompany=" + formCompany + '\'' +
                 "formDocumentNo=" + formDocumentNo + '\'' +
                 "formDocumentDate=" + formDocumentDate + '\'' +

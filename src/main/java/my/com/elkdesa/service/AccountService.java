@@ -1,42 +1,99 @@
 package my.com.elkdesa.service;
 
-import my.com.elkdesa.model.ElkdesaAccountJournalType;
-import my.com.elkdesa.model.ElkdesaAccountRejectedReason;
-import my.com.elkdesa.model.ElkdesaAccountSupportDocument;
+import my.com.elkdesa.model.*;
 
 import java.util.List;
 
 public interface AccountService {
 
-    List<ElkdesaAccountJournalType> findElkdesaAccountJournalList();
+    List<ElkdesaForm> findElkdesaFormList();
 
-    ElkdesaAccountJournalType findElkdesaAccountJournalType(Integer id);
+    ElkdesaForm findElkdesaForm(Integer id);
 
-    void saveElkdesaAccountJournalType(ElkdesaAccountJournalType elkdesaAccountJournalType);
+    void saveElkdesaForm(ElkdesaForm elkdesaForm);
 
-    ElkdesaAccountJournalType updateElkdesaAccountJournalType(ElkdesaAccountJournalType elkdesaAccountJournalType);
+    ElkdesaForm updateElkdesaForm(ElkdesaForm elkdesaForm);
 
-    void deleteElkdesaAccountJournalType(Integer id);
+    void deleteElkdesaForm(Integer id);
 
-    List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentList();
 
-    List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentByJournalType(Integer journalType);
+    List<ElkdesaFormStatus> findElkdesaFormStatusList();
 
-    ElkdesaAccountSupportDocument findElkdesaAccountSupportDocument(Integer id);
+    ElkdesaFormStatus findElkdesaFormStatus(Integer id);
 
-    void saveElkdesaAccountSupportDocument(ElkdesaAccountSupportDocument elkdesaAccountSupportDocument);
+    void saveElkdesaFormStatus(ElkdesaFormStatus elkdesaFormStatus);
 
-    ElkdesaAccountSupportDocument updateElkdesaAccountSupportDocument(ElkdesaAccountSupportDocument elkdesaAccountSupportDocument);
+    ElkdesaFormStatus updateElkdesaFormStatus(ElkdesaFormStatus elkdesaFormStatus);
 
-    void deleteElkdesaAccountSupportDocument(Integer id);
+    void deleteElkdesaFormStatus(Integer id);
 
-    List<ElkdesaAccountRejectedReason> findElkdesaAccountRejectedReasonList();
 
-    ElkdesaAccountRejectedReason findElkdesaAccountRejectedReason(Integer id);
+    List<ElkdesaJournalDocumentType> findElkdesaJournalDocumentTypeList();
 
-    void saveElkdesaAccountRejectedReason(ElkdesaAccountRejectedReason elkdesaAccountRejectedReason);
+    ElkdesaJournalDocumentType findElkdesaJournalDocumentType(Integer id);
 
-    ElkdesaAccountRejectedReason updateElkdesaAccountRejectedReason(ElkdesaAccountRejectedReason elkdesaAccountRejectedReason);
+    void saveElkdesaJournalDocumentType(ElkdesaJournalDocumentType elkdesaJournalDocumentType);
 
-    void deleteElkdesaAccountRejectedReason(Integer id);
+    ElkdesaJournalDocumentType updateElkdesaJournalDocumentType(ElkdesaJournalDocumentType elkdesaJournalDocumentType);
+
+    void deleteElkdesaJournalDocumentType(Integer id);
+
+
+
+    List<ElkdesaJournalEntryForm> findElkdesaJournalEntryFormList();
+
+    ElkdesaJournalEntryForm findElkdesaJournalEntryForm(Integer id);
+
+    void saveElkdesaJournalEntryForm(ElkdesaJournalEntryForm elkdesaJournalEntryForm);
+
+    ElkdesaJournalEntryForm updateElkdesaJournalEntryForm(ElkdesaJournalEntryForm elkdesaJournalEntryForm);
+
+    void deleteElkdesaJournalEntryForm(Integer id);
+
+
+    List<ElkdesaJournalEntryFormData> findElkdesaJournalEntryFormDataList();
+
+    ElkdesaJournalEntryFormData findElkdesaJournalEntryFormData(Integer id);
+
+    void saveElkdesaJournalEntryFormData(ElkdesaJournalEntryFormData elkdesaJournalEntryFormData);
+
+    ElkdesaJournalEntryFormData updateElkdesaJournalEntryFormData(ElkdesaJournalEntryFormData elkdesaJournalEntryFormData);
+
+    void deleteElkdesaJournalEntryFormData(Integer id);
+
+
+
+    List<ElkdesaJournalEntrySequence> findElkdesaJournalEntrySequenceList();
+
+    ElkdesaJournalEntrySequence findElkdesaJournalEntrySequence(Integer id);
+
+    void saveElkdesaJournalEntrySequence(ElkdesaJournalEntrySequence elkdesaJournalEntrySequence);
+
+    ElkdesaJournalEntrySequence updateElkdesaJournalEntrySequence(ElkdesaJournalEntrySequence elkdesaJournalEntrySequence);
+
+    void deleteElkdesaJournalEntrySequence(Integer id);
+
+
+
+    List<ElkdesaJournalType> findElkdesaJournalTypeList();
+
+    ElkdesaJournalType findElkdesaJournalType(Integer id);
+
+    void saveElkdesaJournalType(ElkdesaJournalType elkdesaJournalType);
+
+    ElkdesaJournalType updateElkdesaJournalType(ElkdesaJournalType elkdesaJournalType);
+
+    void deleteElkdesaJournalType(Integer id);
+
+
+
+    List<ElkdesaRejectedReason> findElkdesaRejectedReasonList();
+
+    ElkdesaRejectedReason findElkdesaRejectedReason(Integer id);
+
+    void saveElkdesaRejectedReason(ElkdesaRejectedReason elkdesaRejectedReason);
+
+    ElkdesaRejectedReason updateElkdesaRejectedReason(ElkdesaRejectedReason elkdesaRejectedReason);
+
+    void deleteElkdesaRejectedReason(Integer id);
 }

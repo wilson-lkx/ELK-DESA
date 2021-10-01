@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="/css/dataView.css">
 
-	<title>Account Journal Report</title>
+	<title>Audit Trail Report</title>
 	<script type="text/javascript">
 
 	function getCurrentDate(now) {
@@ -121,7 +121,7 @@ var table = $('#table').DataTable({
  <%@ include file="../include/menu.html" %>
 
 <br>
-	<h2 id="title">Audit Trial Report</h2>
+	<h2 id="title">Audit Trail Report</h2>
 	<div class="container-xl">
 		<div style="border: 1px solid black; padding: 15px 15px 15px;>
 			<form id="search_form" name="search_form">

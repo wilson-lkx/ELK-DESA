@@ -3,9 +3,12 @@ package my.com.elkdesa.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * $table.getTableComment()
+ */
 @Entity
-@Table(name = "elkdesa_account_support_document")
-public class ElkdesaAccountSupportDocument implements Serializable {
+@Table(name = "elkdesa_journal_document_type")
+public class ElkdesaJournalDocumentType implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -46,7 +49,7 @@ public class ElkdesaAccountSupportDocument implements Serializable {
 
     @Override
     public String toString() {
-        return "ElkdesaAccountSupportDocument{" +
+        return "ElkdesaJournalDocumentType{" +
                 "id=" + id + '\'' +
                 "documentJournalType=" + documentJournalType + '\'' +
                 "documentType=" + documentType + '\'' +

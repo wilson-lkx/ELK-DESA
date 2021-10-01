@@ -7,11 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/report")
 public class ReportController {
 
-    @RequestMapping("/account")
-    public String getAccountReport() {
-        return "report/account";
+    @RequestMapping("/journal_entry")
+    public String getJournalEntryReport() {
+        return "report/journal_entry";
     }
 
 
+    @RequestMapping("/audit_trail")
+    public String getAuditTrailReport(){ return "report/audit_trail";}
+
+    @RequestMapping("/follow_up")
+    public String getFollowUpReport(){ return "report/follow_up";}
 }
 

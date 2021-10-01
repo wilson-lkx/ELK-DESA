@@ -4,9 +4,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * $table.getTableComment()
+ */
 @Entity
-@Table(name = "elkdesa_account_journal_form_data")
-public class ElkdesaAccountJournalFormData implements Serializable {
+@Table(name = "elkdesa_journal_entry_form_data")
+public class ElkdesaJournalEntryFormData implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,8 +30,8 @@ public class ElkdesaAccountJournalFormData implements Serializable {
     @Column(name = "form_remark")
     private String formRemark;
 
-    @Column(name = "form_raised_by", nullable = false)
-    private Integer formRaisedBy;
+    @Column(name = "form_raised_by")
+    private String formRaisedBy;
 
     @Column(name = "form_raised_datetime", nullable = false)
     private Date formRaisedDatetime;
@@ -73,11 +76,11 @@ public class ElkdesaAccountJournalFormData implements Serializable {
         return formRemark;
     }
 
-    public void setFormRaisedBy(Integer formRaisedBy) {
+    public void setFormRaisedBy(String formRaisedBy) {
         this.formRaisedBy = formRaisedBy;
     }
 
-    public Integer getFormRaisedBy() {
+    public String getFormRaisedBy() {
         return formRaisedBy;
     }
 
@@ -91,7 +94,7 @@ public class ElkdesaAccountJournalFormData implements Serializable {
 
     @Override
     public String toString() {
-        return "ElkdesaAccountJournalFormData{" +
+        return "ElkdesaJournalEntryFormData{" +
                 "id=" + id + '\'' +
                 "formId=" + formId + '\'' +
                 "formStatus=" + formStatus + '\'' +

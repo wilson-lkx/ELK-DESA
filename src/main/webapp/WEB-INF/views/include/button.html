@@ -23,34 +23,24 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.5.4/css/colReorder.dataTables.min.css">
 
     <script type="text/javascript">
-    function getExportButtons() {
+    function getExportButtons(filename) {
         var buttons = [{
             extend: 'collection',
             text: 'Export',
-            buttons: [{
+            buttons: [
+            {
+                title: filename,
+                extend: 'pdf',
+                text: 'Pdf',
+                orientation: 'landscape',
+                className: 'btn btn-default',
+                exportOptions: {
+                    columns: ':visible:not(.notexport)'
+                }
+            }, {
+                title: filename,
                 extend: 'excel',
                 text: 'Excel',
-                className: 'btn btn-default',
-                exportOptions: {
-                    columns: ':visible:not(.notexport)'
-                }
-            }, {
-                extend: 'csv',
-                text: 'CSV',
-                className: 'btn btn-default',
-                exportOptions: {
-                    columns: ':visible:not(.notexport)'
-                }
-            }, {
-                extend: 'pdf',
-                text: 'PDF',
-                className: 'btn btn-default',
-                exportOptions: {
-                    columns: ':visible:not(.notexport)'
-                }
-            }, {
-                extend: 'print',
-                text: 'Print',
                 className: 'btn btn-default',
                 exportOptions: {
                     columns: ':visible:not(.notexport)'

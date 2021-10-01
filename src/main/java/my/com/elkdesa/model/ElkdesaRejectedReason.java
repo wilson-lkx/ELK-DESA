@@ -3,9 +3,12 @@ package my.com.elkdesa.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * $table.getTableComment()
+ */
 @Entity
-@Table(name = "elkdesa_account_rejected_reason")
-public class ElkdesaAccountRejectedReason implements Serializable {
+@Table(name = "elkdesa_rejected_reason")
+public class ElkdesaRejectedReason implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -13,6 +16,9 @@ public class ElkdesaAccountRejectedReason implements Serializable {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "rejected_form", nullable = false)
+    private Integer rejectedForm;
 
     @Column(name = "rejected_reason", nullable = false)
     private String rejectedReason;
@@ -25,6 +31,14 @@ public class ElkdesaAccountRejectedReason implements Serializable {
         return id;
     }
 
+    public void setRejectedForm(Integer rejectedForm) {
+        this.rejectedForm = rejectedForm;
+    }
+
+    public Integer getRejectedForm() {
+        return rejectedForm;
+    }
+
     public void setRejectedReason(String rejectedReason) {
         this.rejectedReason = rejectedReason;
     }
@@ -35,8 +49,9 @@ public class ElkdesaAccountRejectedReason implements Serializable {
 
     @Override
     public String toString() {
-        return "ElkdesaAccountRejectedReason{" +
+        return "ElkdesaRejectedReason{" +
                 "id=" + id + '\'' +
+                "rejectedForm=" + rejectedForm + '\'' +
                 "rejectedReason=" + rejectedReason + '\'' +
                 '}';
     }

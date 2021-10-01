@@ -1,11 +1,7 @@
 package my.com.elkdesa.service;
 
-import my.com.elkdesa.dao.ElkdesaAccountJournalTypeDao;
-import my.com.elkdesa.dao.ElkdesaAccountRejectedReasonDao;
-import my.com.elkdesa.dao.ElkdesaAccountSupportDocumentDao;
-import my.com.elkdesa.model.ElkdesaAccountJournalType;
-import my.com.elkdesa.model.ElkdesaAccountRejectedReason;
-import my.com.elkdesa.model.ElkdesaAccountSupportDocument;
+import my.com.elkdesa.dao.*;
+import my.com.elkdesa.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,92 +13,238 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService{
 
     @Autowired
-    ElkdesaAccountJournalTypeDao<ElkdesaAccountJournalType> elkdesaAccountJournalTypeDao;
+    ElkdesaFormDao<ElkdesaForm> elkdesaFormDao;
 
     @Autowired
-    ElkdesaAccountSupportDocumentDao<ElkdesaAccountSupportDocument> elkdesaAccountSupportDocumentDao;
+    ElkdesaFormStatusDao<ElkdesaFormStatus> elkdesaFormStatusDao;
 
     @Autowired
-    ElkdesaAccountRejectedReasonDao<ElkdesaAccountRejectedReason> elkdesaAccountRejectedReasonDao;
+    ElkdesaJournalDocumentTypeDao<ElkdesaJournalDocumentType> elkdesaJournalDocumentTypeDao;
+
+    @Autowired
+    ElkdesaJournalEntryFormDao<ElkdesaJournalEntryForm> elkdesaJournalEntryFormDao;
+
+    @Autowired
+    ElkdesaJournalEntryFormDataDao<ElkdesaJournalEntryFormData> elkdesaJournalEntryFormDataDao;
+
+    @Autowired
+    ElkdesaJournalEntrySequenceDao<ElkdesaJournalEntrySequence> elkdesaJournalEntrySequenceDao;
+
+    @Autowired
+    ElkdesaJournalTypeDao<ElkdesaJournalType> elkdesaJournalTypeDao;
+
+    @Autowired
+    ElkdesaRejectedReasonDao<ElkdesaRejectedReason> elkdesaRejectedReasonDao;
 
     @Override
-    public List<ElkdesaAccountJournalType> findElkdesaAccountJournalList() {
-        return elkdesaAccountJournalTypeDao.findAll("journalType");
+    public List<ElkdesaForm> findElkdesaFormList() {
+        return elkdesaFormDao.findAll();
     }
 
     @Override
-    public ElkdesaAccountJournalType findElkdesaAccountJournalType(Integer id) {
-        return elkdesaAccountJournalTypeDao.findOne(id);
+    public ElkdesaForm findElkdesaForm(Integer id) {
+        return elkdesaFormDao.findOne(id);
     }
 
     @Override
-    public void saveElkdesaAccountJournalType(ElkdesaAccountJournalType elkdesaAccountJournalType) {
-        elkdesaAccountJournalTypeDao.save(elkdesaAccountJournalType);
+    public void saveElkdesaForm(ElkdesaForm elkdesaForm) {
+        elkdesaFormDao.save(elkdesaForm);
     }
 
     @Override
-    public ElkdesaAccountJournalType updateElkdesaAccountJournalType(ElkdesaAccountJournalType elkdesaAccountJournalType) {
-        return elkdesaAccountJournalTypeDao.update(elkdesaAccountJournalType);
+    public ElkdesaForm updateElkdesaForm(ElkdesaForm elkdesaForm) {return elkdesaFormDao.update(elkdesaForm);}
+
+    @Override
+    public void deleteElkdesaForm(Integer id) {elkdesaFormDao.deleteById(id);}
+
+
+
+    @Override
+    public List<ElkdesaFormStatus> findElkdesaFormStatusList() {
+        return elkdesaFormStatusDao.findAll();
     }
 
     @Override
-    public void deleteElkdesaAccountJournalType(Integer id) {
-        elkdesaAccountJournalTypeDao.deleteById(id);
+    public ElkdesaFormStatus findElkdesaFormStatus(Integer id) {
+        return elkdesaFormStatusDao.findOne(id);
     }
 
     @Override
-    public List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentList() {
-        return elkdesaAccountSupportDocumentDao.findAll();
+    public void saveElkdesaFormStatus(ElkdesaFormStatus elkdesaFormStatus) {
+        elkdesaFormStatusDao.save(elkdesaFormStatus);
     }
 
     @Override
-    public List<ElkdesaAccountSupportDocument> findElkdesaAccountSupportDocumentByJournalType(Integer journalType) {
-        return elkdesaAccountSupportDocumentDao.findElkdesaAccountSupportDocumentByJournalType(journalType);
+    public ElkdesaFormStatus updateElkdesaFormStatus(ElkdesaFormStatus elkdesaFormStatus) {
+        return elkdesaFormStatusDao.update(elkdesaFormStatus);
     }
 
     @Override
-    public ElkdesaAccountSupportDocument findElkdesaAccountSupportDocument(Integer id) {
-        return elkdesaAccountSupportDocumentDao.findOne(id);
+    public void deleteElkdesaFormStatus(Integer id) {
+        elkdesaFormStatusDao.deleteById(id);
+    }
+
+
+
+    @Override
+    public List<ElkdesaJournalDocumentType> findElkdesaJournalDocumentTypeList() {
+        return elkdesaJournalDocumentTypeDao.findAll();
     }
 
     @Override
-    public void saveElkdesaAccountSupportDocument(ElkdesaAccountSupportDocument elkdesaAccountSupportDocument) {
-        elkdesaAccountSupportDocumentDao.save(elkdesaAccountSupportDocument);
+    public ElkdesaJournalDocumentType findElkdesaJournalDocumentType(Integer id) {
+        return elkdesaJournalDocumentTypeDao.findOne(id);
     }
 
     @Override
-    public ElkdesaAccountSupportDocument updateElkdesaAccountSupportDocument(ElkdesaAccountSupportDocument elkdesaAccountSupportDocument) {
-        return elkdesaAccountSupportDocumentDao.update(elkdesaAccountSupportDocument);
+    public void saveElkdesaJournalDocumentType(ElkdesaJournalDocumentType elkdesaJournalDocumentType) {
+        elkdesaJournalDocumentTypeDao.save(elkdesaJournalDocumentType);
     }
 
     @Override
-    public void deleteElkdesaAccountSupportDocument(Integer id) {
-        elkdesaAccountSupportDocumentDao.deleteById(id);
+    public ElkdesaJournalDocumentType updateElkdesaJournalDocumentType(ElkdesaJournalDocumentType elkdesaJournalDocumentType) {
+        return elkdesaJournalDocumentTypeDao.update(elkdesaJournalDocumentType);
     }
 
     @Override
-    public List<ElkdesaAccountRejectedReason> findElkdesaAccountRejectedReasonList() {
-        return elkdesaAccountRejectedReasonDao.findAll();
+    public void deleteElkdesaJournalDocumentType(Integer id) {
+        elkdesaJournalDocumentTypeDao.deleteById(id);
+    }
+
+
+
+    @Override
+    public List<ElkdesaJournalEntryForm> findElkdesaJournalEntryFormList() {
+        return elkdesaJournalEntryFormDao.findAll();
     }
 
     @Override
-    public ElkdesaAccountRejectedReason findElkdesaAccountRejectedReason(Integer id) {
-        return elkdesaAccountRejectedReasonDao.findOne(id);
+    public ElkdesaJournalEntryForm findElkdesaJournalEntryForm(Integer id) {
+        return elkdesaJournalEntryFormDao.findOne(id);
     }
 
     @Override
-    public void saveElkdesaAccountRejectedReason(ElkdesaAccountRejectedReason elkdesaAccountRejectedReason) {
-        elkdesaAccountRejectedReasonDao.save(elkdesaAccountRejectedReason);
+    public void saveElkdesaJournalEntryForm(ElkdesaJournalEntryForm elkdesaJournalEntryForm) {
+        elkdesaJournalEntryFormDao.save(elkdesaJournalEntryForm);
     }
 
     @Override
-    public ElkdesaAccountRejectedReason updateElkdesaAccountRejectedReason(ElkdesaAccountRejectedReason elkdesaAccountRejectedReason) {
-        return elkdesaAccountRejectedReasonDao.update(elkdesaAccountRejectedReason);
+    public ElkdesaJournalEntryForm updateElkdesaJournalEntryForm(ElkdesaJournalEntryForm elkdesaJournalEntryForm) {
+        return elkdesaJournalEntryFormDao.update(elkdesaJournalEntryForm);
     }
 
     @Override
-    public void deleteElkdesaAccountRejectedReason(Integer id) {
-        elkdesaAccountRejectedReasonDao.deleteById(id);
+    public void deleteElkdesaJournalEntryForm(Integer id) {
+        elkdesaJournalEntryFormDao.deleteById(id);
+    }
+
+
+
+    @Override
+    public List<ElkdesaJournalEntryFormData> findElkdesaJournalEntryFormDataList() {
+        return elkdesaJournalEntryFormDataDao.findAll();
+    }
+
+    @Override
+    public ElkdesaJournalEntryFormData findElkdesaJournalEntryFormData(Integer id) {
+        return elkdesaJournalEntryFormDataDao.findOne(id);
+    }
+
+    @Override
+    public void saveElkdesaJournalEntryFormData(ElkdesaJournalEntryFormData elkdesaJournalEntryFormData) {
+        elkdesaJournalEntryFormDataDao.save(elkdesaJournalEntryFormData);
+    }
+
+    @Override
+    public ElkdesaJournalEntryFormData updateElkdesaJournalEntryFormData(ElkdesaJournalEntryFormData elkdesaJournalEntryFormData) {
+        return elkdesaJournalEntryFormDataDao.update(elkdesaJournalEntryFormData);
+    }
+
+    @Override
+    public void deleteElkdesaJournalEntryFormData(Integer id) {
+        elkdesaJournalEntryFormDataDao.deleteById(id);
+    }
+
+
+
+
+    @Override
+    public List<ElkdesaJournalEntrySequence> findElkdesaJournalEntrySequenceList() {
+        return elkdesaJournalEntrySequenceDao.findAll();
+    }
+
+    @Override
+    public ElkdesaJournalEntrySequence findElkdesaJournalEntrySequence(Integer id) {
+        return elkdesaJournalEntrySequenceDao.findOne(id);
+    }
+
+    @Override
+    public void saveElkdesaJournalEntrySequence(ElkdesaJournalEntrySequence elkdesaJournalEntrySequence) {
+        elkdesaJournalEntrySequenceDao.save(elkdesaJournalEntrySequence);
+    }
+
+    @Override
+    public ElkdesaJournalEntrySequence updateElkdesaJournalEntrySequence(ElkdesaJournalEntrySequence elkdesaJournalEntrySequence) {
+        return elkdesaJournalEntrySequenceDao.update(elkdesaJournalEntrySequence);
+    }
+
+    @Override
+    public void deleteElkdesaJournalEntrySequence(Integer id) {
+        elkdesaJournalEntrySequenceDao.deleteById(id);
+    }
+
+
+
+    @Override
+    public List<ElkdesaJournalType> findElkdesaJournalTypeList() {
+        return elkdesaJournalTypeDao.findAll();
+    }
+
+    @Override
+    public ElkdesaJournalType findElkdesaJournalType(Integer id) {
+        return elkdesaJournalTypeDao.findOne(id);
+    }
+
+    @Override
+    public void saveElkdesaJournalType(ElkdesaJournalType elkdesaJournalType) {
+        elkdesaJournalTypeDao.save(elkdesaJournalType);
+    }
+
+    @Override
+    public ElkdesaJournalType updateElkdesaJournalType(ElkdesaJournalType elkdesaJournalType) {
+        return elkdesaJournalTypeDao.update(elkdesaJournalType);
+    }
+
+    @Override
+    public void deleteElkdesaJournalType(Integer id) {
+        elkdesaJournalTypeDao.deleteById(id);
+    }
+
+
+
+    @Override
+    public List<ElkdesaRejectedReason> findElkdesaRejectedReasonList() {
+        return elkdesaRejectedReasonDao.findAll();
+    }
+
+    @Override
+    public ElkdesaRejectedReason findElkdesaRejectedReason(Integer id) {
+        return elkdesaRejectedReasonDao.findOne(id);
+    }
+
+    @Override
+    public void saveElkdesaRejectedReason(ElkdesaRejectedReason elkdesaRejectedReason) {
+        elkdesaRejectedReasonDao.save(elkdesaRejectedReason);
+    }
+
+    @Override
+    public ElkdesaRejectedReason updateElkdesaRejectedReason(ElkdesaRejectedReason elkdesaRejectedReason) {
+        return elkdesaRejectedReasonDao.update(elkdesaRejectedReason);
+    }
+
+    @Override
+    public void deleteElkdesaRejectedReason(Integer id) {
+        elkdesaRejectedReasonDao.deleteById(id);
     }
 
 }

@@ -1,10 +1,8 @@
 package my.com.elkdesa.controller.account;
 
-import my.com.elkdesa.dao.ElkdesaAccountJournalTypeDao;
-import my.com.elkdesa.model.ElkdesaAccountJournalType;
+import my.com.elkdesa.model.ElkdesaJournalType;
 import my.com.elkdesa.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,35 +30,35 @@ public class JournalTypeController {
 
     @GetMapping
     @ResponseBody
-    public List<ElkdesaAccountJournalType> getJournalTypes() {
-        return accountService.findElkdesaAccountJournalList();
+    public List<ElkdesaJournalType> getJournalTypes() {
+        return accountService.findElkdesaJournalTypeList();
     }
 
     @PostMapping
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    public void createJournalType(@RequestBody ElkdesaAccountJournalType elkdesaAccountJournalType){
-        accountService.saveElkdesaAccountJournalType(elkdesaAccountJournalType);
+    public void createJournalType(@RequestBody ElkdesaJournalType elkdesaJournalType){
+        accountService.saveElkdesaJournalType(elkdesaJournalType);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ElkdesaAccountJournalType getJournalTypeById(@PathVariable(value ="id") Integer id){
-        return accountService.findElkdesaAccountJournalType(id);
+    public ElkdesaJournalType getJournalTypeById(@PathVariable(value ="id") Integer id){
+        return accountService.findElkdesaJournalType(id);
     }
 
     @PutMapping("/{id}")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
     public void updateJournalType(@PathVariable(value ="id")Integer id,
-                                  @RequestBody ElkdesaAccountJournalType newElkdesaJournalType){
-        ElkdesaAccountJournalType elkdesaAccountJournalType = accountService.findElkdesaAccountJournalType(id);
-        elkdesaAccountJournalType.setJournalType((newElkdesaJournalType.getJournalType()));
-        accountService.updateElkdesaAccountJournalType(elkdesaAccountJournalType);
+                                  @RequestBody ElkdesaJournalType newElkdesaJournalType){
+        ElkdesaJournalType elkdesaJournalType = accountService.findElkdesaJournalType(id);
+        elkdesaJournalType.setJournalType((newElkdesaJournalType.getJournalType()));
+        accountService.updateElkdesaJournalType(elkdesaJournalType);
     }
 
     @DeleteMapping("/{id}")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    public void deleteJournalType(@PathVariable(value="id") Integer id){ accountService.deleteElkdesaAccountJournalType(id);}
+    public void deleteJournalType(@PathVariable(value="id") Integer id){ accountService.deleteElkdesaJournalType(id);}
 }

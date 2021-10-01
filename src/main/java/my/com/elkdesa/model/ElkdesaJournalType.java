@@ -7,8 +7,8 @@ import java.io.Serializable;
  * $table.getTableComment()
  */
 @Entity
-@Table(name = "elkdesa_user_role")
-public class ElkdesaUserRole implements Serializable {
+@Table(name = "elkdesa_journal_type")
+public class ElkdesaJournalType implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -17,8 +17,8 @@ public class ElkdesaUserRole implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_role", nullable = false)
-    private String userRole;
+    @Column(name = "journal_type", nullable = false)
+    private String journalType;
 
     public void setId(Long id) {
         this.id = id;
@@ -28,19 +28,19 @@ public class ElkdesaUserRole implements Serializable {
         return id;
     }
 
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
+    public void setJournalType(String journalType) {
+        this.journalType = journalType;
     }
 
-    public String getUserRole() {
-        return userRole;
+    public String getJournalType() {
+        return journalType;
     }
 
     @Override
     public String toString() {
-        return "ElkdesaUserRole{" +
+        return "ElkdesaJournalType{" +
                 "id=" + id + '\'' +
-                "userRole=" + userRole + '\'' +
+                "journalType=" + journalType + '\'' +
                 '}';
     }
 }

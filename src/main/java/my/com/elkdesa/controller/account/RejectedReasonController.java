@@ -1,6 +1,6 @@
 package my.com.elkdesa.controller.account;
 
-import my.com.elkdesa.model.ElkdesaAccountRejectedReason;
+import my.com.elkdesa.model.ElkdesaRejectedReason;
 import my.com.elkdesa.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,37 +24,37 @@ public class RejectedReasonController {
 
     @GetMapping
     @ResponseBody
-    public List<ElkdesaAccountRejectedReason> getRejectedReasons() {
-        return accountService.findElkdesaAccountRejectedReasonList();
+    public List<ElkdesaRejectedReason> getRejectedReasons() {
+        return accountService.findElkdesaRejectedReasonList();
     }
 
     @PostMapping
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    public void createRejectedReason(@RequestBody ElkdesaAccountRejectedReason elkdesaAccountRejectedReason){
-        accountService.saveElkdesaAccountRejectedReason(elkdesaAccountRejectedReason);
+    public void createRejectedReason(@RequestBody ElkdesaRejectedReason elkdesaRejectedReason){
+        accountService.saveElkdesaRejectedReason(elkdesaRejectedReason);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ElkdesaAccountRejectedReason getRejectedReasonById(@PathVariable(value ="id") Integer id){
-        return accountService.findElkdesaAccountRejectedReason(id);
+    public ElkdesaRejectedReason getRejectedReasonById(@PathVariable(value ="id") Integer id){
+        return accountService.findElkdesaRejectedReason(id);
     }
 
     @PutMapping("/{id}")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
     public void updateRejectedReason(@PathVariable(value ="id")Integer id,
-                                      @RequestBody ElkdesaAccountRejectedReason newElkdesaAccountRejectedReason){
-        ElkdesaAccountRejectedReason elkdesaAccountRejectedReason = accountService.findElkdesaAccountRejectedReason(id);
-        elkdesaAccountRejectedReason.setRejectedReason((newElkdesaAccountRejectedReason.getRejectedReason()));
-        accountService.updateElkdesaAccountRejectedReason(elkdesaAccountRejectedReason);
+                                      @RequestBody ElkdesaRejectedReason newElkdesaRejectedReason){
+        ElkdesaRejectedReason elkdesaRejectedReason = accountService.findElkdesaRejectedReason(id);
+        elkdesaRejectedReason.setRejectedReason((newElkdesaRejectedReason.getRejectedReason()));
+        accountService.updateElkdesaRejectedReason(elkdesaRejectedReason);
     }
 
     @DeleteMapping("/{id}")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    public void deleteRejectedReason(@PathVariable(value="id") Integer id){ accountService.deleteElkdesaAccountRejectedReason(id);}
+    public void deleteRejectedReason(@PathVariable(value="id") Integer id){ accountService.deleteElkdesaRejectedReason(id);}
 
 }
 

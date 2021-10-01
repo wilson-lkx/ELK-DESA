@@ -3,9 +3,12 @@ package my.com.elkdesa.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * $table.getTableComment()
+ */
 @Entity
-@Table(name = "elkdesa_account_journal_type")
-public class ElkdesaAccountJournalType implements Serializable {
+@Table(name = "elkdesa_form")
+public class ElkdesaForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -14,8 +17,8 @@ public class ElkdesaAccountJournalType implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "journal_type", nullable = false)
-    private String journalType;
+    @Column(name = "form_title", nullable = false)
+    private String formTitle;
 
     public void setId(Long id) {
         this.id = id;
@@ -25,19 +28,19 @@ public class ElkdesaAccountJournalType implements Serializable {
         return id;
     }
 
-    public void setJournalType(String journalType) {
-        this.journalType = journalType;
+    public void setFormTitle(String formTitle) {
+        this.formTitle = formTitle;
     }
 
-    public String getJournalType() {
-        return journalType;
+    public String getFormTitle() {
+        return formTitle;
     }
 
     @Override
     public String toString() {
-        return "ElkdesaAccountJournalType{" +
+        return "ElkdesaForm{" +
                 "id=" + id + '\'' +
-                "journalType=" + journalType + '\'' +
+                "formTitle=" + formTitle + '\'' +
                 '}';
     }
 }

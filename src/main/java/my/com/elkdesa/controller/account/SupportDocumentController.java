@@ -1,6 +1,6 @@
 package my.com.elkdesa.controller.account;
 
-import my.com.elkdesa.model.ElkdesaAccountSupportDocument;
+import my.com.elkdesa.model.ElkdesaJournalDocumentType;
 import my.com.elkdesa.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,44 +24,44 @@ public class SupportDocumentController {
 
     @GetMapping
     @ResponseBody
-    public List<ElkdesaAccountSupportDocument> getSupportDocuments(
+    public List<ElkdesaJournalDocumentType> getSupportDocuments(
             @RequestParam(value = "journalType", required = false) Integer journalType
     ) {
-        List<ElkdesaAccountSupportDocument> elkdesaAccountSupportDocumentList;
+        List<ElkdesaJournalDocumentType> elkdesaJournalDocumentTypeList;
         if (journalType != null) {
-            elkdesaAccountSupportDocumentList = accountService.findElkdesaAccountSupportDocumentByJournalType(journalType);
+            elkdesaJournalDocumentTypeList = accountService.findElkdesaJournalDocumentTypeByJournalType(journalType);
         } else {
-            elkdesaAccountSupportDocumentList = accountService.findElkdesaAccountSupportDocumentList();
+            elkdesaJournalDocumentTypeList = accountService.findElkdesaJournalDocumentTypeList();
         }
-        return elkdesaAccountSupportDocumentList;
+        return elkdesaJournalDocumentTypeList;
     }
 
     @PostMapping
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    public void createSupportDocument(@RequestBody ElkdesaAccountSupportDocument elkdesaAccountSupportDocument){
-        accountService.saveElkdesaAccountSupportDocument(elkdesaAccountSupportDocument);
+    public void createSupportDocument(@RequestBody ElkdesaJournalDocumentType elkdesaJournalDocumentType){
+        accountService.saveElkdesaJournalDocumentType(elkdesaJournalDocumentType);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ElkdesaAccountSupportDocument getSupportDocumentById(@PathVariable(value ="id") Integer id){
-        return accountService.findElkdesaAccountSupportDocument(id);
+    public ElkdesaJournalDocumentType getSupportDocumentById(@PathVariable(value ="id") Integer id){
+        return accountService.findElkdesaJournalDocumentType(id);
     }
     
     @PutMapping("/{id}")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
     public void updateSupportDocument(@PathVariable(value ="id")Integer id,
-                                  @RequestBody ElkdesaAccountSupportDocument newElkdesaAccountSupportDocument){
-        ElkdesaAccountSupportDocument elkdesaAccountSupportDocument = accountService.findElkdesaAccountSupportDocument(id);
-        elkdesaAccountSupportDocument.setDocumentType((newElkdesaAccountSupportDocument.getDocumentType()));
-        accountService.updateElkdesaAccountSupportDocument(elkdesaAccountSupportDocument);
+                                  @RequestBody ElkdesaJournalDocumentType newElkdesaJournalDocumentType){
+        ElkdesaJournalDocumentType elkdesaJournalDocumentType = accountService.findElkdesaJournalDocumentType(id);
+        elkdesaJournalDocumentType.setDocumentType((newElkdesaJournalDocumentType.getDocumentType()));
+        accountService.updateElkdesaJournalDocumentType(elkdesaJournalDocumentType);
     }
 
     @DeleteMapping("/{id}")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    public void deleteSupportDocument(@PathVariable(value="id") Integer id){ accountService.deleteElkdesaAccountSupportDocument(id);}
+    public void deleteSupportDocument(@PathVariable(value="id") Integer id){ accountService.deleteElkdesaJournalDocumentType(id);}
     
 }
